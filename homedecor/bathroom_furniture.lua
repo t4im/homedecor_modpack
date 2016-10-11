@@ -35,7 +35,6 @@ for i in ipairs(bathroom_tile_colors) do
 			"("..coloredtile..")^[transformR90"
 		},
 		groups = {cracky=3},
-		paramtype = "light",
 		sounds = default.node_sound_stone_defaults(),
 	})
 end

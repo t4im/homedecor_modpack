@@ -10,8 +10,6 @@ function homedecor.register(name, original_def)
 		or (def.mesh and "mesh")
 		or (def.node_box and "nodebox")
 
-	def.paramtype = def.paramtype or "light"
-
 	-- avoid facedir for some drawtypes as they might be used internally for something else
 	-- even if undocumented
 	if not (def.drawtype == "glasslike_framed"
@@ -20,6 +18,18 @@ function homedecor.register(name, original_def)
 		or def.drawtype == "firelike") then
 
 		def.paramtype2 = def.paramtype2 or "facedir"
+	end
+
+	if def.sunlight_propagates ~= false and
+			(def.drawtype == "plantlike" or def.drawtype == "torchlike" or
+			def.drawtype == "signlike" or def.drawtype == "fencelike") then
+		def.sunlight_propagates = true
+	end
+
+	if not def.paramtype and
+		(def.light_source or def.sunlight_propagates or
+		def.drawtype == "nodebox" or def.drawtype == "mesh") then
+		def.paramtype = "light"
 	end
 
 	homedecor.handle_inventory(name, def, original_def)

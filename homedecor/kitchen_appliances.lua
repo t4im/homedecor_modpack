@@ -248,6 +248,7 @@ homedecor.register("dishwasher_"..m, {
 		"homedecor_dishwasher_back.png",
 		"homedecor_dishwasher_front.png"
 	},
+	paramtype = "light",
 	groups = { snappy = 3 },
 	sounds = default.node_sound_stone_defaults(),
 })

@@ -211,6 +211,7 @@ homedecor.register("fishtank_lighted", {
 
 homedecor.register("cardboard_box_big", {
 	description = S("Cardboard box (big)"),
+	paramtype = "light",
 	tiles = {
 		'homedecor_cardbox_big_tb.png',
 		'homedecor_cardbox_big_tb.png',
